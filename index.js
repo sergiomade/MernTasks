@@ -8,8 +8,20 @@ const app = express();
 // conecta a la base de datos
 conectarDB();
 
+// Set up a whitelist
+var whitelist = ['https://vibrant-mcclintock-370cc5.netlify.app/','https://polar-citadel-98436.herokuapp.com/']
+var corsOptions = {
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
+
 // Habilitar cors
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Habilitar express.json
 app.use( express.json({ extended: true}) );
