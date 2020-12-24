@@ -9,7 +9,7 @@ const app = express();
 conectarDB();
 
 // Set up a whitelist
-var whitelist = ['https://vibrant-mcclintock-370cc5.netlify.app/','https://polar-citadel-98436.herokuapp.com/']
+var whitelist = ['https://vibrant-mcclintock-370cc5.netlify.app/']
 var corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
